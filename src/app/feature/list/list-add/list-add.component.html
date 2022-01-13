@@ -1,0 +1,31 @@
+<div>
+  <div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Add List Element</mat-label>
+      <input matInput placeholder="Enter New List Element" [(ngModel)]="newlistitem">
+    </mat-form-field>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" (click)="onSubmitClicked()">+ Add To List</button>
+    </div>
+  </div>
+  <div class="custom-margins">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Select Value For You is</mat-label>
+      <input matInput placeholder="Enter New List Element" [value]="diaplayText" disabled>
+    </mat-form-field>
+  </div>
+  <hr>
+  <app-list-search [todoLists]="item" (clickEvent)="newButtonClicked($event)"></app-list-search>
+    <div class="custom-margins" style="margin-top: 15px; margin-bottom: 20px;" *ngIf="displayIndex!==-1">
+      <mat-card class="custom-text" [class.mat-elevation-z8]="true" *ngIf="displayIndex%2===0">
+        <p style="color: red">
+          {{ diaplayText }}
+        </p>
+      </mat-card>
+      <mat-card class="custom-text" [class.mat-elevation-z8]="true" *ngIf="displayIndex%2!==0">
+        <p style="color: green">
+          <b>{{ diaplayText }}</b>
+        </p>
+      </mat-card>
+    </div>
+</div>

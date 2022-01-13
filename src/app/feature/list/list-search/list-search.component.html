@@ -1,0 +1,14 @@
+<div>
+  <mat-card [class.mat-elevation-z8]="true" style="margin-left: 200px; margin-right: 200px; margin-top: 10px;">
+    <mat-card-subtitle style="text-align: center;">Search Action</mat-card-subtitle>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Search For Element</mat-label>
+        <input matInput placeholder="Enter Value For Search" [(ngModel)]="searchKey" (input)="onsearch()">
+      </mat-form-field>
+    <div *ngFor="let listitem of searchSpace;let indexOfelement=index;">
+      <mat-card class="card-custom" (click)="onClicked(listitem,indexOfelement)">
+        {{ listitem }}
+      </mat-card>
+    </div>
+  </mat-card>
+</div>
